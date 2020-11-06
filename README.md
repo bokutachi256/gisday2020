@@ -5,11 +5,11 @@
 * 2020年11月21日 東京都立大学南大沢キャンパス
 
 ## 内容
-1. 画像の検索
+1. 画像の検索と表示
 2. Image Collectionの扱い
 3. mapを用いた比演算
 4. Feature Collectionの扱い
-5. Reducer
+5. 画像に対するReducerの使い方
 6. 散布図
 7. 機械学習を用いた分類
 8. etc.

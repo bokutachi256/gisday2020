@@ -6,6 +6,7 @@
 
 ## 内容
 1. 画像の検索と表示
+2. NDVIの計算（比演算）
 2. Image Collectionの扱い
 3. mapを用いた比演算
 4. Feature Collectionの扱い

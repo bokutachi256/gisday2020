@@ -2,9 +2,8 @@
 
 NDVIは以下の式で求まります．
 
-$
-NDVI = \frac{NIR-Red}{NIR+Red}
-$
+![NDVI = \frac{NIR - Red}{NIR + Red}
+](https://render.githubusercontent.com/render/math?math=%5CLarge+%5Cdisplaystyle+NDVI+%3D+%5Cfrac%7BNIR+-+Red%7D%7BNIR+%2B+Red%7D%0A)
 
 ここで，$Red$は赤の波長の反射率，$NIR$は近赤外の波長の反射率です．
 Lansast-8では，バンド4（B4）が赤の反射率，バンド5（B5）が近赤外の反射率です．

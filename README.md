@@ -7,10 +7,10 @@
 
 # 内容
 1. 画像の検索と表示
-2. NDVIの計算（比演算）
+2. NDVIの計算（比演算）方法
 3. mapを用いたImage Collectionの処理
-4. Feature Collectionの扱い
+4. Feature Collectionの扱い方
 5. Reducerを用いた集計
-6. 散布図と時系列チャート
+6. 散布図と時系列チャート作成
 7. 計算結果のエクスポート
 8. 機械学習を用いた分類

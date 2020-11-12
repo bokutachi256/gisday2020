@@ -36,8 +36,4 @@ var ndviparam = {
 Map.setCenter(lon, lat, 10);
 Map.addLayer(ndvimax, ndviparam, 'Max NDVI');
 
-print(ui.Chart.image.series(withNDVI.select('NDVI'),
-  geometry.buffer(500),
-  ee.Reducer.mean(), 30));
-
 ```

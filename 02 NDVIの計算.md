@@ -1,7 +1,16 @@
 # NDVIの計算
 
-NDVIは以下の式で求まります．
+## NDVIの定義
 
+植物は光合成が活発で活性度が強いほど赤の波長の光を吸収するために
+反射強度が小さくなります．
+一方，近赤外の波長は活性度に関係なく反射強度が大きくなります．
+このため植物の活性度が強いほど近赤外の反射強度と赤の反射強度の差が大きくなります．
+この原理を応用し，太陽光度や入射エネルギーが異なる画像でも植生の活性度が比較できるように
+したものが正規化植生指標（Normalized Difference Vegetation Index; NDVI）です．
+
+NDVIの計算式は以下になります．
+x
 ![NDVI = \frac{NIR - Red}{NIR + Red}
 ](https://render.githubusercontent.com/render/math?math=%5CLarge+%5Cdisplaystyle+NDVI+%3D+%5Cfrac%7BNIR+-+Red%7D%7BNIR+%2B+Red%7D%0A)
 
@@ -44,18 +53,18 @@ print(ndvi);
 ## 計算結果の表示
 
 最後に求まった`ndvi`を表示します．
-ndviの表示プロパティとして`ndviParams`を設定します．
+ndviの表示プロパティとして`ndviparam`を設定します．
 NDVIは理論的には-1から1の間の値を取ります．`max`と`min`にそれぞれ-1と1を設定します．
 
 
 ```javascript
-var ndviParams = {
+var ndviparam = {
   min: -1,
   max: 1,
   palette: ['blue', 'white', 'green']
   };
 
-Map.addLayer(ndvi, ndviParams, 'NDVI');
+Map.addLayer(ndvi, ndviparam, 'NDVI');
 ```
 
 #### NDVIの計算プログラムの全体
@@ -87,11 +96,11 @@ var ndvi = image.normalizedDifference(['B5', 'B4']).rename('NDVI');
 
 print(image);
 
-var ndviParams = {
+var ndviparam = {
   min: -1,
   max: 1,
   palette: ['blue', 'white', 'green']
   };
 
-Map.addLayer(ndvi, ndviParams, 'NDVI');
+Map.addLayer(ndvi, ndviparam, 'NDVI');
 ```

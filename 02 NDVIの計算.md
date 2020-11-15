@@ -69,7 +69,7 @@ Map.addLayer(ndvi, ndviparam, 'NDVI');
 
 #### NDVIの計算プログラムの全体
 ```javascript
-var start = ee.Date('2017-07-08');
+var start = ee.Date('2017-01-01');
 var end = ee.Date('2017-12-31');
 var lon = 132;
 var lat = 33;
@@ -86,7 +86,7 @@ var visparam = {
   bands: ['B4', 'B3', 'B2'],
   min: 0,
   max: 3000,
-  gamma: 1.4
+  gamma: 1.5
 };
 
 Map.setCenter(lon, lat, 10);

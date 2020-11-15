@@ -12,6 +12,6 @@
 4. [Feature Collectionの扱い方](https://github.com/bokutachi256/gisday2020/blob/main/04%20Feature%20Collection%E3%81%AE%E6%89%B1%E3%81%84%E6%96%B9.md)
 5. [Reducerを用いた集計](https://github.com/bokutachi256/gisday2020/blob/main/05%20Reducer%E3%82%92%E7%94%A8%E3%81%84%E3%81%9F%E9%9B%86%E8%A8%88.md)
 6. [DEM](https://github.com/bokutachi256/gisday2020/blob/main/06%20DEM%E3%81%AB%E3%82%88%E3%82%8B%E5%82%BE%E6%96%9C%E9%87%8F%E8%A8%88%E7%AE%97.md)
-7. 散布図と時系列チャート作成
+7. 散布図と時系列チャートの作成
 8. 計算結果のエクスポート
 9. 機械学習を用いた分類

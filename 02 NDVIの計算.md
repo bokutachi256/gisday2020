@@ -70,7 +70,7 @@ Map.addLayer(ndvi, ndviparam, 'NDVI');
 ![](images/344c17caab003602426afaedf8e5799b.png)
 
 
-## NDVIの計算プログラムの全体
+## プログラム全体
 ```javascript
 var start = ee.Date('2017-01-01');
 var end = ee.Date('2017-12-31');

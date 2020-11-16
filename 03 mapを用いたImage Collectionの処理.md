@@ -91,9 +91,9 @@ var ndviparam = {
 Map.setCenter(lon, lat, 10);
 Map.addLayer(ndvimax, ndviparam, 'Max NDVI');
 ```
+![NDVIの最大値コンポジット](images/d8ec7ff7161cba8a9abc6fed4ea38f22.png)
 
-## NDVIの計算プログラムの全体
-
+## プログラム全体
 ```javascript
 var start = ee.Date('2017-01-01');
 var end = ee.Date('2017-12-31');

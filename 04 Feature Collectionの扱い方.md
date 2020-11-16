@@ -1,3 +1,10 @@
+# Feature Collectionの扱い方
+
+![](images/480386d9e133150c35c338f1cde36efa.png)
+
+
+
+
 ```javascript
 var start = ee.Date('2015-07-01');
 var end = ee.Date('2017-06-30');

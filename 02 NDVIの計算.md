@@ -56,6 +56,7 @@ print(ndvi);
 ndviの表示プロパティとして`ndviparam`を設定します．
 NDVIは理論的には-1から1の間の値を取ります．`max`と`min`にそれぞれ-1と1を設定します．
 
+次に`Map.addLayer`を使って表示します．
 
 ```javascript
 var ndviparam = {
@@ -66,8 +67,10 @@ var ndviparam = {
 
 Map.addLayer(ndvi, ndviparam, 'NDVI');
 ```
+![](images/344c17caab003602426afaedf8e5799b.png)
 
-#### NDVIの計算プログラムの全体
+
+## NDVIの計算プログラムの全体
 ```javascript
 var start = ee.Date('2017-01-01');
 var end = ee.Date('2017-12-31');

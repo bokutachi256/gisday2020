@@ -1,5 +1,13 @@
 # NDVIの計算
+<!-- TOC depthFrom:1 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
 
+- [NDVIの計算](#ndvi計算)
+	- [NDVIの定義](#ndvi定義)
+	- [バンドの取り出しと比演算](#取出比演算)
+	- [計算結果の表示](#計算結果表示)
+	- [プログラム全体](#全体)
+
+<!-- /TOC -->
 ## NDVIの定義
 
 植物は光合成が活発で活性度が強いほど赤の波長の光を吸収するために
@@ -10,7 +18,7 @@
 したものが正規化植生指標（Normalized Difference Vegetation Index; NDVI）です．
 
 NDVIの計算式は以下になります．
-x
+
 ![NDVI = \frac{NIR - Red}{NIR + Red}
 ](https://render.githubusercontent.com/render/math?math=%5CLarge+%5Cdisplaystyle+NDVI+%3D+%5Cfrac%7BNIR+-+Red%7D%7BNIR+%2B+Red%7D%0A)
 

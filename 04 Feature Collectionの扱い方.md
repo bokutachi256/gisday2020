@@ -1,5 +1,16 @@
 # Feature Collectionの扱い方
+<!-- TOC depthFrom:1 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
 
+- [Feature Collectionの扱い方](#feature-collection扱方)
+	- [Feature Collectionとは](#feature-collection)
+	- [ベクタ型データの準備](#型準備)
+	- [アセットへのアップロード](#)
+	- [アセットからスクリプトにデータをインポートする](#)
+	- [Feature Collectionからデータを選択抽出する](#feature-collection選択抽出)
+	- [Feature Collectionの表示](#feature-collection表示)
+	- [プログラム全体](#全体)
+
+<!-- /TOC -->
 
 
 ## Feature Collectionとは
@@ -69,7 +80,7 @@ zipで固めたシェープァイルをドラッグアンドドロップしま�
 この状態ではアセットのインポート部分がスクリプト外にありますので，スクリプトにアセットのインポート部分を埋め込みます．
 
 インポート部分にあるShow Generated codeアイコンをクリックするとスクリプト埋め込み用のコードが表示されるので，コピーしてスクリプトにペーストします．オブジェクト名は`landslides`に変更しました．
-これでスクリプト内でアセットをインポートすることができました．
+これでスクリプト内でアセットをインポートすることができます．
 
 ```javascript
 var landslides = ee.FeatureCollection("users/morusaevo9/20170810asakura_toho_handokuzu");
@@ -82,8 +93,8 @@ var landslides = ee.FeatureCollection("users/morusaevo9/20170810asakura_toho_han
 ![](images/480386d9e133150c35c338f1cde36efa.png)
 
 このうち，本プログラムでは洪水到達範囲と土砂崩壊地のポリゴンのみを使用しますので，この2種類のポリゴンのみを選択抽出します．
-ポリゴンの選択抽出にはImageCollectionと同様に`filter`メソッドを使います．
-土砂災害ポリゴンの`name`属性がポリゴンの種類を指名しているので，これを利用します．
+ポリゴンの選択抽出にはImage Collectionと同様にFeature Collectionで`filter`メソッドを使います．
+土砂災害ポリゴンの`name`属性がポリゴンの種類を示しているのでこれを利用します．
 `ee.Filter.inList`を用いて`name`属性に`土砂崩壊地`と`洪水流到達範囲`が含まれているポリゴンのみを抽出します．
 `ee.FIlter.inList`の条件はリストで指定します．
 抽出したオブジェクトをコンソールに出力して内容を確認します．
@@ -96,7 +107,22 @@ print(landslides);
 
 ## Feature Collectionの表示
 
+Feature CollectionもImage Collectionと同様に`Map.addLayer`を使って画面表示します．
+属性ごとに色分けをして表示したいところですが，GEEではなかなか手間がかかるのでこのサンプルでは少し手抜きをしています．
+`filter`メソッドを使って`土砂崩壊地`と`洪水到達範囲`を分け，それぞれ別の色で表示してみました．
 
+```javascript
+Map.addLayer(landslides
+  .filter(ee.Filter.eq('name', '土砂崩壊地')), {color: 'orange'}, '土砂崩壊地');
+Map.addLayer(landslides
+  .filter(ee.Filter.eq('name', '洪水流到達範囲')), {color: 'blue'}, '洪水流到達範囲');
+```
+
+## プログラム全体
+
+以下のプログラムでは，衛星画像の検索にパスとロウを指定しています．
+これでまでのプログラムでは`ee.Geometry.Point`で作成したポイントオブジェクトを含む衛星画像を検索していましたが，ポイントオブジェクトを含む方法では画像が重なっている場合に異なる位置の画像が検索される可能性があります．
+このため，Landsat-8のパスとロウを示すプロパティ`WRS_PATH`と`WRS_ROW`を用いて画像を検索しています．
 
 ```javascript
 var start = ee.Date('2015-07-01');

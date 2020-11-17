@@ -1,19 +1,19 @@
-# Feature Collectionの扱い方
+# FeatureCollectionの扱い方
 <!-- TOC depthFrom:1 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
 
-- [Feature Collectionの扱い方](#Feature\ Collectionの扱い方)
-	- [Feature Collectionとは](#Feature\ Collectionとは)
+- [Feature Collectionの扱い方](#FeatureCollectionの扱い方)
+	- [Feature Collectionとは](#FeatureCollectionとは)
 	- [ベクタ型データの準備](#ベクタ型データの準備)
 	- [アセットへのアップロード](#アセットへのアップロード)
 	- [アセットからスクリプトにデータをインポートする](#アセットからスクリプトにデータをインポートする)
-	- [Feature Collectionからデータを選択抽出する](#Feature\ Collectionからデータを選択抽出する)
-	- [Feature Collectionの表示](#Feature\ Collectionの表示)
+	- [Feature Collectionからデータを選択抽出する](#FeatureCollectionからデータを選択抽出する)
+	- [Feature Collectionの表示](#FeatureCollectionの表示)
 	- [プログラム全体](#プログラム全体)
 
 <!-- /TOC -->
 
 
-## Feature Collectionとは
+## FeatureCollectionとは
 Google Earth Engine（以下GEEと表記）では，衛星画像に代表されるラスタ型のデータ以外にベクタ型のデータも扱うことができます．
 GEEではベクタ型のデータのことをFeatureと呼びます．
 単体のFeatureは一つのベクタ型のデータのことを表し，複数のベクタ型データのことをFeature Collectionと呼びます．
@@ -86,7 +86,7 @@ zipで固めたシェープァイルをドラッグアンドドロップしま�
 var landslides = ee.FeatureCollection("users/morusaevo9/20170810asakura_toho_handokuzu");
 ```
 
-## Feature Collectionからデータを選択抽出する
+## FeatureCollectionからデータを選択抽出する
 
 例として使っている平成27年7月九州北部豪雨の土砂災害ポリゴンには，下図のように6種類のポリゴンが含まれています．
 
@@ -105,7 +105,7 @@ var landslides = ee.FeatureCollection("users/morusaevo9/20170810asakura_toho_han
 print(landslides);
 ```
 
-## Feature Collectionの表示
+## FeatureCollectionの表示
 
 Feature CollectionもImage Collectionと同様に`Map.addLayer`を使って画面表示します．
 属性ごとに色分けをして表示したいところですが，GEEではなかなか手間がかかるのでこのサンプルでは少し手抜きをしています．

@@ -21,7 +21,7 @@ GEEではベクタ型のデータのことをFeatureと呼びます．
 多くのGISでは一つのベクタ型データには同じジオメトリ（ポイントならポイントだけ，ラインならラインだけ，ポリゴンならポリゴンだけ）しか格納できませんが，Feature Collectionには複数の種類のジオメトリを格納することができます．
 
 ここでは．シンプルに単一のジオメトリからなるFeature Collectionを考えます．
-例として国土地理院のホームページで公開されている平成29年7月九州北部豪雨で発生した土砂災害域のポリゴンデータをGEEに読み込んでみましょう．
+例として，国土地理院のホームページで公開されている，平成29年7月九州北部豪雨で発生した土砂災害域のポリゴンデータをGEEに読み込んでみましょう．
 
 GEEへのベクタ型データのインポートは以下の手順になります．
 
@@ -92,8 +92,8 @@ var landslides = ee.FeatureCollection("users/morusaevo9/20170810asakura_toho_han
 
 ![](images/480386d9e133150c35c338f1cde36efa.png)
 
-このうち，本プログラムでは洪水到達範囲と土砂崩壊地のポリゴンのみを使用しますので，この2種類のポリゴンのみを選択抽出します．
-ポリゴンの選択抽出にはImage Collectionと同様にFeature Collectionで`filter`メソッドを使います．
+このうち，本プログラムでは洪水流到達範囲と土砂崩壊地のポリゴンを使用しますので，この2種類のポリゴンのみを選択抽出します．
+ポリゴンの選択抽出にはImageCollectionと同様にFeatureCollectionで`filter`メソッドを使います．
 土砂災害ポリゴンの`name`属性がポリゴンの種類を示しているのでこれを利用します．
 `ee.Filter.inList`を用いて`name`属性に`土砂崩壊地`と`洪水流到達範囲`が含まれているポリゴンのみを抽出します．
 `ee.FIlter.inList`の条件はリストで指定します．
@@ -107,16 +107,18 @@ print(landslides);
 
 ## FeatureCollectionの表示
 
-Feature CollectionもImage Collectionと同様に`Map.addLayer`を使って画面表示します．
+FeatureCollectionもImageCollectionと同様に`Map.addLayer`を使って画面表示します．
 属性ごとに色分けをして表示したいところですが，GEEではなかなか手間がかかるのでこのサンプルでは少し手抜きをしています．
 `filter`メソッドを使って`土砂崩壊地`と`洪水到達範囲`を分け，それぞれ別の色で表示してみました．
 
 ```javascript
 Map.addLayer(landslides
-  .filter(ee.Filter.eq('name', '土砂崩壊地')), {color: 'orange'}, '土砂崩壊地');
+	.filter(ee.Filter.eq('name', '土砂崩壊地')), {color: 'orange'}, '土砂崩壊地');
 Map.addLayer(landslides
-  .filter(ee.Filter.eq('name', '洪水流到達範囲')), {color: 'blue'}, '洪水流到達範囲');
+	.filter(ee.Filter.eq('name', '洪水流到達範囲')), {color: 'blue'}, '洪水流到達範囲');
 ```
+
+![landslide](images/landslide.png)
 
 ## プログラム全体
 

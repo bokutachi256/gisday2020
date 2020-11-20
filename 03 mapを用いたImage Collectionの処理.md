@@ -1,7 +1,7 @@
-# mapを用いたImageCollectionの処理
+# mapを用いたイメージコレクションの処理
 <!-- TOC depthFrom:1 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
 
-- [mapを用いたImageCollectionの処理](#mapを用いたImageCollectionの処理)
+- [mapを用いたイメージコレクションの処理](#mapを用いたイメージコレクションの処理)
 	- [mapの概念](#mapの概念)
 	- [mapの手順](#mapの手順)
 	- [NDVIの最大値を求める](#NDVIの最大値を求める)
@@ -22,11 +22,11 @@ Google Earth Engineは高度に並列化されたバックグラウンドプロ�
 ## mapの手順
 mapの手順は以下になります．
 
-1. ImageCollectionを作成し，複数画像をストアする．
+1. イメージコレクションを作成し，複数画像をストアする．
 2. 処理用の関数を作成する．
-3. mapを使ってImageCollectionに関数を適用し画像の処理を行う．
+3. mapを使ってイメージコレクションに関数を適用し画像の処理を行う．
 
-まず，ImageCollectionを作成します．
+まず，イメージコレクションを作成します．
 
 画像の撮影日と位置は以下とします．
 
@@ -63,7 +63,7 @@ var addNDVI = function(image) {
 ```
 
 最後にmapを使って`ImageCollection`の一括処理を行います．
-処理後（NDVIを加えた）ImageCollectionを`withNDVI`とします．
+処理後（NDVIを加えた）イメージコレクションを`withNDVI`とします．
 `withNDVI`をコンソールに出力し，すべての画像にNDVIが加わっているか確認してみましょう．
 
 ```javascript
@@ -73,19 +73,20 @@ print(withNDVI, 'withNDVI');
 
 ## NDVIの最大値を求める
 
-今のところ，ImageCollectionのすべての画像を表示する手立てはありません．
+今のところ，イメージコレクションのすべての画像を表示する手立てはありません．
 NDVIを1枚だけ表示しても面白くないので，NDVI最大値のコンポジットを作ってみましょう．
 
 衛星画像には雲が含まれていることがあります．
-雲はNDVIが低くなるので，植生リモートセンシングにとってはノイズになります．
-
+雲はNDVIが低くなるので植生リモートセンシングにとってはノイズになります．
+このため，ある期間におけるピクセルごとのNDVIの最大値を求めることにより，
+雲の影響を取り除いたNDVIを求めることができます．
 
 ```javascript
 var ndvimax = withNDVI.select('NDVI').max();
 print(ndvimax);
 ```
 
-NDVI計算済みのImageCollectionである`withNDVI`に`select`メソッドを使って
+NDVI計算済みのイメージコレクションである`withNDVI`に`select`メソッドを使って
 各ピクセルのバンド`NDVI`の最大値を取り出します．
 これを`ndvimax`とします．
 `ndvimax`は1バンドのみの画像になります．

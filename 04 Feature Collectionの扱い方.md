@@ -1,18 +1,18 @@
-# FeatureCollectionの扱い方
+# フィーチャコレクションの扱い方
 <!-- TOC depthFrom:1 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
 
-- [Feature Collectionの扱い方](#FeatureCollectionの扱い方)
-	- [Feature Collectionとは](#FeatureCollectionとは)
+- [フィーチャコレクションの扱い方](#フィーチャコレクションの扱い方)
+	- [フィーチャコレクションとは](#フィーチャコレクションとは)
 	- [ベクタ型データの準備](#ベクタ型データの準備)
 	- [アセットへのアップロード](#アセットへのアップロード)
 	- [アセットからスクリプトにデータをインポートする](#アセットからスクリプトにデータをインポートする)
-	- [Feature Collectionからデータを選択抽出する](#FeatureCollectionからデータを選択抽出する)
-	- [Feature Collectionの表示](#FeatureCollectionの表示)
+	- [フィーチャコレクションからデータを選択抽出する](#フィーチャコレクションからデータを選択抽出する)
+	- [フィーチャコレクションの表示](#フィーチャコレクションの表示)
 	- [プログラム全体](#プログラム全体)
 
 <!-- /TOC -->
 
-## FeatureCollectionとは
+## フィーチャコレクションとは
 Google Earth Engine（以下GEEと表記）では，衛星画像に代表されるラスタ型のデータ以外にベクタ型のデータも扱うことができます．
 GEEではベクタ型のデータのことをFeatureと呼びます．
 単体のFeatureは一つのベクタ型のデータのことを表し，複数のベクタ型データのことをFeature Collectionと呼びます．
@@ -85,14 +85,14 @@ zipで固めたシェープァイルをドラッグアンドドロップしま�
 var landslides = ee.FeatureCollection("users/morusaevo9/20170810asakura_toho_handokuzu");
 ```
 
-## FeatureCollectionからデータを選択抽出する
+## フィーチャコレクションからデータを選択抽出する
 
 例として使っている平成27年7月九州北部豪雨の土砂災害ポリゴンには，下図のように6種類のポリゴンが含まれています．
 
 ![](images/480386d9e133150c35c338f1cde36efa.png)
 
 このうち，本プログラムでは洪水流到達範囲と土砂崩壊地のポリゴンを使用しますので，この2種類のポリゴンのみを選択抽出します．
-ポリゴンの選択抽出にはImageCollectionと同様にFeatureCollectionで`filter`メソッドを使います．
+ポリゴンの選択抽出にはイメージコレクションと同様にフィーチャコレクションで`filter`メソッドを使います．
 土砂災害ポリゴンの`name`属性がポリゴンの種類を示しているのでこれを利用します．
 `ee.Filter.inList`を用いて`name`属性に`土砂崩壊地`と`洪水流到達範囲`が含まれているポリゴンのみを抽出します．
 `ee.FIlter.inList`の条件はリストで指定します．
@@ -104,9 +104,9 @@ var landslides = ee.FeatureCollection("users/morusaevo9/20170810asakura_toho_han
 print(landslides);
 ```
 
-## FeatureCollectionの表示
+## フィーチャコレクションの表示
 
-FeatureCollectionもImageCollectionと同様に`Map.addLayer`を使って画面表示します．
+フィーチャコレクションもイメージコレクションと同様に`Map.addLayer`を使って画面表示します．
 属性ごとに色分けをして表示したいところですが，GEEではなかなか手間がかかるのでこのサンプルでは少し手抜きをしています．
 `filter`メソッドを使って`土砂崩壊地`と`洪水到達範囲`を分け，それぞれ別の色で表示してみました．
 
@@ -137,27 +137,22 @@ var landslides = ee.FeatureCollection("users/morusaevo9/20170810asakura_toho_han
   .filter(ee.Filter.inList('name', ['土砂崩壊地', '洪水流到達範囲']));
 print(landslides);
 
-// 豪雨前の衛星画像の取得
 var ImageCollection = ee.ImageCollection('LANDSAT/LC08/C01/T1_SR')
     .filterDate(start, end)
     .filter(ee.Filter.eq('WRS_PATH', 112))
     .filter(ee.Filter.eq('WRS_ROW', 37));
 
-// NDVI計算用の関数定義
 var addNDVI = function(image) {
   var ndvi = image.normalizedDifference(['B5', 'B4']).rename('NDVI');
   return image.addBands(ndvi);
 };
 
-// 豪雨前後の画像画像コレクションにNDVIを追加
 var withNDVI = ImageCollection.map(addNDVI);
 
 var ndvimax = withNDVI.select('NDVI').max();
 
-// マップ中心座標の設定
 Map.setCenter(lon, lat, 10);
 
-// NDVIと差分の表示パラメーターの定義
 var ndviparam = {
   min: -1,
   max: 1,
@@ -169,5 +164,4 @@ Map.addLayer(landslides
   .filter(ee.Filter.eq('name', '土砂崩壊地')), {color: 'orange'}, '土砂崩壊地');
 Map.addLayer(landslides
   .filter(ee.Filter.eq('name', '洪水流到達範囲')), {color: 'blue'}, '洪水流到達範囲');
-
 ```

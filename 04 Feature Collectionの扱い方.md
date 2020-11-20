@@ -12,7 +12,6 @@
 
 <!-- /TOC -->
 
-
 ## FeatureCollectionとは
 Google Earth Engine（以下GEEと表記）では，衛星画像に代表されるラスタ型のデータ以外にベクタ型のデータも扱うことができます．
 GEEではベクタ型のデータのことをFeatureと呼びます．

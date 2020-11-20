@@ -1,11 +1,11 @@
 # mapを用いたImageCollectionの処理
 <!-- TOC depthFrom:1 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
 
-- [mapを用いたImageCollectionの処理](#map用imagecollection処理)
-	- [mapの概念](#map概念)
-	- [mapの手順](#map手順)
-	- [NDVIの最大値を求める](#ndvi最大値求)
-	- [プログラム全体](#全体)
+- [mapを用いたImageCollectionの処理](#mapを用いたImageCollectionの処理)
+	- [mapの概念](#mapの概念)
+	- [mapの手順](#mapの手順)
+	- [NDVIの最大値を求める](#NDVIの最大値を求める)
+	- [プログラム全体](#プログラム全体)
 
 <!-- /TOC -->
 ## mapの概念
@@ -75,6 +75,10 @@ print(withNDVI, 'withNDVI');
 
 今のところ，ImageCollectionのすべての画像を表示する手立てはありません．
 NDVIを1枚だけ表示しても面白くないので，NDVI最大値のコンポジットを作ってみましょう．
+
+衛星画像には雲が含まれていることがあります．
+雲はNDVIが低くなるので，植生リモートセンシングにとってはノイズになります．
+
 
 ```javascript
 var ndvimax = withNDVI.select('NDVI').max();

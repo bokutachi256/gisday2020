@@ -1,13 +1,13 @@
 # Reducerを用いた集計
 <!-- TOC depthFrom:1 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
 
-- [Reducerを用いた集計](#reducer用集計)
-	- [Reducerの概念](#reducer概念)
-	- [Reducerの手順](#reducer手順)
-	- [集計される側のイメージコレクションを用意する](#集計側用意)
-	- [集計単位となるフィーチャコレクションを用意する](#集計単位用意)
-	- [Reducerを用いて集計する](#reducer用集計)
-	- [プログラム全体](#全体)
+- [Reducerを用いた集計](#Reducerを用いた集計)
+	- [Reducerの概念](#Reducerの概念)
+	- [Reducerの手順](#Reducerの手順)
+	- [集計される側のイメージコレクションを用意する](#集計される側のイメージコレクションを用意する)
+	- [集計単位となるフィーチャコレクションを用意する](#集計単位となるフィーチャコレクションを用意する)
+	- [Reducerを用いて集計する](#Reducerを用いて集計する)
+	- [プログラム全体](#プログラム全体)
 
 <!-- /TOC -->
 
@@ -173,11 +173,13 @@ print('landslides', landslides);
 ## プログラム全体
 
 ```javascript
-var start1 = ee.Date('2015-07-01');
-var end1 = ee.Date('2017-06-30');
+// 5. Reducerを用いた集計
+
+var start1 = ee.Date('2016-07-01');
+var end1 = ee.Date('2017-07-04');
 
 var start2 = ee.Date('2017-07-07');
-var end2 = ee.Date('2019-06-30');
+var end2 = ee.Date('2018-07-04');
 
 var lon = 132;
 var lat = 33;

@@ -108,6 +108,8 @@ Map.addLayer(ndvimax, ndviparam, 'Max NDVI');
 
 ## プログラム全体
 ```javascript
+// 3. mapを用いたイメージコレクションの処理
+
 var start = ee.Date('2017-01-01');
 var end = ee.Date('2017-12-31');
 var lon = 132;

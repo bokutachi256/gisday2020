@@ -3,7 +3,7 @@
 * Google Earth Engine入門
 * 東京都立大学 都市環境学部 地理環境学科 中山大地
 * 2020年11月22日 東京都立大学 南大沢キャンパス（オンライン開催）
-* [https://github.com/bokutachi256/gisday2020](https://github.com/bokutachi256/gisday2020)
+* このテキストのURL [https://github.com/bokutachi256/gisday2020](https://github.com/bokutachi256/gisday2020)
 
 # 内容
 1. [画像の検索と表示](https://github.com/bokutachi256/gisday2020/blob/main/01%20%E8%A1%9B%E6%98%9F%E7%94%BB%E5%83%8F%E3%81%AE%E6%A4%9C%E7%B4%A2%E3%81%A8%E8%A1%A8%E7%A4%BA.md)

@@ -24,7 +24,7 @@ GEEで利用可能なDEMはSRTMやALOS DSMなどがあり，全球データで�
 ## DEMの読み込み
 
 ALOS DSMのIDは`JAXA/ALOS/AW3D30/V2_2`です．
-このIDを使ってインスタンス`aw3d30`を作成します．
+このIDを使ってオブジェクト`aw3d30`を作成します．
 
 ```javascript
 var aw3d30 = ee.Image("JAXA/ALOS/AW3D30/V2_2");
@@ -32,9 +32,9 @@ var aw3d30 = ee.Image("JAXA/ALOS/AW3D30/V2_2");
 
 ![](images/9da164c31017e4b75f963fb7bb09e9bf.png)
 
-次にインスタンス`aw3d30`からDSMのバンドを選択します．
+次にオブジェクト`aw3d30`からDSMのバンドを選択します．
 データカタログから，DSMのバンド名は`AVE_DSM`です．
-これをオブジェクト`elevation`に格納します．
+`aw3d30`で`select`メソッドを使って`AVE_DSM`を取りだし，オブジェクト`elevation`に格納します．
 
 ```javascript
 var elevation = aw3d30.select('AVE_DSM');
@@ -44,7 +44,7 @@ var elevation = aw3d30.select('AVE_DSM');
 
 ## 傾斜量の計算
 
-次にオブジェクト`elevation`で傾斜量を計算しましょう．
+次にオブジェクト`elevation`から傾斜量を計算しましょう．
 GEEには各種地形量を計算するための関数が用意されています．
 傾斜量は`ee.Terrain.slope`で求まります．
 `ee.Terrain.slope`の引数は傾斜を求めるDEMのみです．
@@ -60,7 +60,7 @@ var slope = ee.Terrain.slope(elevation);
 ALOS DSMは全球を覆っているので，もしかすると全球にわたって傾斜量を計算しているのでしょうか．
 
 答えはNOです．GEEでは必要なときに必要な分だけ計算を行っています．
-今回の例ですと，実際に傾斜量が計算されるのは次で行うreducerによる集計の時と，
+今回の例ですと，実際に傾斜量が計算されるのは次で行うReducerによる集計の時と，
 画面表示の時になります．
 このように，GEEでは最適化された計算を行うことで巨大なデータでも短時間で処理が可能です．
 
@@ -86,7 +86,7 @@ var landslides = slope.reduceRegions({
 reducerで平均を集計すると，オブジェクト`landslides`の属性`mean`にポリゴンごとの傾斜量の平均値が格納されます．
 NDVIの集計の時と同じように，属性`slopemean`を作成して平均値をコピーします．
 
-確認のために`landslides`をコンソールに出力しましょう．
+確認のために`landslides`をコンソールに出力して確認します．
 
 ```javascript
 var landslides = landslides.map(function(feature){

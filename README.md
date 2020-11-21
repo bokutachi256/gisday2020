@@ -2,7 +2,7 @@
 
 * Google Earth Engine入門
 * 東京都立大学 都市環境学部 地理環境学科 中山大地
-* 2020年11月21日 東京都立大学 南大沢キャンパス
+* 2020年11月21日 東京都立大学 南大沢キャンパス（オンライン開催）
 * [github repository: www.github.com/bokutachi256/gisday2020](https://www.github.com/bokutachi256/gisday2020)
 
 # 内容

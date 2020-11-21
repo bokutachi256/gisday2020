@@ -6,7 +6,7 @@
 * [github repository: www.github.com/bokutachi256/gisday2020](https://www.github.com/bokutachi256/gisday2020)
 
 # 内容
-1. [画像の検索](https://github.com/bokutachi256/gisday2020/blob/main/01%20%E8%A1%9B%E6%98%9F%E7%94%BB%E5%83%8F%E3%81%AE%E6%A4%9C%E7%B4%A2%E3%81%A8%E8%A1%A8%E7%A4%BA.md)
+1. [画像の検索と表示](https://github.com/bokutachi256/gisday2020/blob/main/01%20%E8%A1%9B%E6%98%9F%E7%94%BB%E5%83%8F%E3%81%AE%E6%A4%9C%E7%B4%A2%E3%81%A8%E8%A1%A8%E7%A4%BA.md)
 2. [NDVIの計算](https://github.com/bokutachi256/gisday2020/blob/main/02%20NDVI%E3%81%AE%E8%A8%88%E7%AE%97.md)
 3. [mapを用いたイメージコレクションの処理](https://github.com/bokutachi256/gisday2020/blob/main/03%20map%E3%82%92%E7%94%A8%E3%81%84%E3%81%9F%E3%82%A4%E3%83%A1%E3%83%BC%E3%82%B8%E3%82%B3%E3%83%AC%E3%82%AF%E3%82%B7%E3%83%A7%E3%83%B3%E3%81%AE%E5%87%A6%E7%90%86.md)
 4. [フィーチャコレクションの扱い方](https://github.com/bokutachi256/gisday2020/blob/main/04%20%E3%83%95%E3%82%A3%E3%83%BC%E3%83%81%E3%83%A3%E3%82%B3%E3%83%AC%E3%82%AF%E3%82%B7%E3%83%A7%E3%83%B3%E3%81%AE%E6%89%B1%E3%81%84%E6%96%B9.md)

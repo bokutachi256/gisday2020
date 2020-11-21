@@ -24,7 +24,9 @@ mapの手順は以下になります．
 
 1. イメージコレクションを作成し，複数画像をストアする．
 2. 処理用の関数を作成する．
-3. mapを使ってイメージコレクションに関数を適用し画像の処理を行う．
+3. mapを使ってイメージコレクションに関数を適用し一括処理を行う．
+
+## 対象イメージコレクションの作成
 
 まず，イメージコレクションを作成します．
 
@@ -49,6 +51,9 @@ var ImageCollection = ee.ImageCollection('LANDSAT/LC08/C01/T1_SR')
   .sort("SENSING_TIME", true);
 print(ImageCollection, 'ImageCollection');
 ```
+
+## 処理を行う関数の作成
+
 次に`function`関数を使ってNDVIを計算する関数を定義します．
 関数名は`addNDVI`，引数は単一の画像オブジェクトで`image`とします．
 引数`image`に`normalizedDifference`を使ってNDVIの計算を行い，
@@ -61,6 +66,8 @@ var addNDVI = function(image) {
   return image.addBands(ndvi);
 };
 ```
+
+## mapを使った一括処理
 
 最後にmapを使って`ImageCollection`の一括処理を行います．
 処理後（NDVIを加えた）イメージコレクションを`withNDVI`とします．
